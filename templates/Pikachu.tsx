@@ -12,6 +12,7 @@ import ProjectsA from './blocks/Projects/ProjectsA';
 import ReferencesA from './blocks/References/ReferencesA';
 import SkillsA from './blocks/Skills/SkillsA';
 import WorkA from './blocks/Work/WorkA';
+import Image from 'next/image'
 
 // Define the structure of the data prop
 interface Profile {
@@ -74,10 +75,12 @@ const Pikachu: React.FC<PikachuProps> = ({ data }) => {
         <div className="grid grid-cols-12 gap-8">
           {data.profile.photograph && (
             <div className="self-center col-span-4">
-              <img
+              <Image
                 className="object-cover w-48 mx-2 rounded-full h-29"
                 src={data.profile.photograph}
                 alt={data.profile.firstName}
+                height={10}
+                width={10}
               />
             </div>
           )}

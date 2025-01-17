@@ -11,10 +11,6 @@ const BuilderArea = () => {
                 </div>
                 <RightSidebar/>
             </div>
-            <div className="d-flex flex-wrap justify-content-center">
-                <button className='mx-2 my-5'  onClick={handlePrint}>Print</button>
-                <button className='mx-2 my-5'  onClick={handleSelectNewTemplate}>Select Another Template</button>
-            </div>
             {/* <Footer /> */}
         </>
     )

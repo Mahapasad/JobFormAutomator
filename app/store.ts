@@ -1,4 +1,5 @@
 import {create} from 'zustand';
+import React from 'react';
 //change the personal data
 type PersonalData = {
     name: string;
@@ -327,4 +328,26 @@ type fontFamily = {
 export const usefontFamily = create<fontFamily>((set) => ({
     position: 'top', 
     setPosition: (newPosition) => set({ position: newPosition }),
+}));
+
+//template
+// Define the type for the templates
+
+type Template = {
+    id: string;
+    name: string;
+    component: React.ReactNode;
+};
+
+type TemplateStore = {
+    templates: Template[];
+    activeTemplateId: string | null;
+    setActiveTemplate: (id: string) => void;
+};
+
+export const useTemplateStore = create<TemplateStore>((set) => ({
+    templates: [], // Initialize with no templates; add manually or dynamically
+    activeTemplateId: null, // No active template initially
+
+    setActiveTemplate: (id) => set({ activeTemplateId: id }),
 }));
