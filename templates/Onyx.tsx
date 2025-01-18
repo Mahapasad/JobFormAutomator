@@ -65,12 +65,11 @@ const Blocks: Record<string, React.ComponentType<any>> = {
   references: ReferencesA,
 };
 
-const Onyx: React.FC<OnyxProps> = ({ data }) => {
+export default function Onyx (){
   const { t } = useTranslation();
   const layout = data.metadata.layout.onyx;
 
   return (
-    <PageContext.Provider value={{ data, heading: HeadingA }}>
       <div
         id="page"
         className="p-8 rounded"
@@ -145,7 +144,6 @@ const Onyx: React.FC<OnyxProps> = ({ data }) => {
             })}
         </div>
       </div>
-    </PageContext.Provider>
   );
 };
 

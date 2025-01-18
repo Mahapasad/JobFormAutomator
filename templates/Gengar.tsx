@@ -57,7 +57,7 @@ interface GengarProps {
   };
 }
 
-const Gengar: React.FC<GengarProps> = ({ data }) => {
+export default function Gengar (){
   const { t } = useTranslation();
   const layout = data.metadata.layout.gengar;
   const { r, g, b } = hexToRgb(data.metadata.colors.primary) || {};
@@ -100,7 +100,7 @@ const Gengar: React.FC<GengarProps> = ({ data }) => {
   );
 
   return (
-    <PageContext.Provider value={{ data, heading: HeadingC }}>
+   
       <div
         id="page"
         className="rounded"
@@ -165,8 +165,7 @@ const Gengar: React.FC<GengarProps> = ({ data }) => {
           </div>
         </div>
       </div>
-    </PageContext.Provider>
   );
 };
 
-export default Gengar;
+

@@ -37,32 +37,10 @@ interface Metadata {
   };
 }
 
-interface Data {
-  profile: Profile;
-  metadata: Metadata;
-}
 
-const Blocks: { [key: string]: React.FC<any> } = {
-  work: WorkA,
-  education: EducationA,
-  projects: ProjectsA,
-  awards: AwardsA,
-  certifications: CertificationsA,
-  skills: SkillsA,
-  hobbies: HobbiesA,
-  languages: LanguagesA,
-  references: ReferencesA,
-};
-
-interface PikachuProps {
-  data: Data;
-}
-
-const Pikachu: React.FC<PikachuProps> = ({ data }) => {
-  const layout = data.metadata.layout.pikachu;
+export default function Pikachu()  {
 
   return (
-    <PageContext.Provider value={{ data, heading: HeadingB }}>
       <div
         id="page"
         className="p-8 rounded"
@@ -143,7 +121,7 @@ const Pikachu: React.FC<PikachuProps> = ({ data }) => {
           </div>
         </div>
       </div>
-    </PageContext.Provider>
+
   );
 };
 

@@ -53,7 +53,7 @@ const Blocks: Record<string, React.ComponentType<any>> = {
   references: ReferencesA,
 };
 
-const Glalie: React.FC<GlalieProps> = ({ data }) => {
+export default function Glalie ()  {
   const layout = data.metadata.layout.glalie;
   const { r, g, b } = hexToRgb(data.metadata.colors.primary) || {};
 
@@ -77,7 +77,6 @@ const Glalie: React.FC<GlalieProps> = ({ data }) => {
   );
 
   return (
-    <PageContext.Provider value={{ data, heading: HeadingB }}>
       <div
         id="page"
         className="rounded"
@@ -117,8 +116,7 @@ const Glalie: React.FC<GlalieProps> = ({ data }) => {
           </div>
         </div>
       </div>
-    </PageContext.Provider>
+
   );
 };
 
-export default Glalie;

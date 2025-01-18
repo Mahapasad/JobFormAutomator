@@ -57,7 +57,7 @@ interface CelebiProps {
   };
 }
 
-const Celebi: React.FC<CelebiProps> = ({ data }) => {
+export default function Celebi ()  {
   const layout = data.metadata.layout.celebi;
   const { r, g, b } = hexToRgb(data.metadata.colors.primary) || {};
   const { t } = useTranslation();
@@ -97,22 +97,7 @@ const Celebi: React.FC<CelebiProps> = ({ data }) => {
       </div>
     );
 
-  const Profile = () => (
-    <div style={styles.header}>
-      <h1
-        className="tracking-wide uppercase font-bold"
-        style={{ fontSize: '2.75em' }}
-      >
-        {data.profile.firstName} {data.profile.lastName}
-      </h1>
-      <h6 className="text-lg tracking-wider uppercase">
-        {data.profile.subtitle}
-      </h6>
-    </div>
-  );
-
   return (
-    <PageContext.Provider value={{ data, heading: HeadingE }}>
       <div
         id="page"
         className="relative rounded"
@@ -162,8 +147,6 @@ const Celebi: React.FC<CelebiProps> = ({ data }) => {
           </div>
         </div>
       </div>
-    </PageContext.Provider>
+    
   );
 };
-
-export default Celebi;
