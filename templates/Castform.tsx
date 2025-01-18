@@ -1,87 +1,23 @@
 import React from 'react';
 import AwardsA from './blocks/Awards/AwardsA';
 import CertificationsA from './blocks/Certifications/CertificationsA';
-import ContactC from './blocks/Contact/ContactC';
+import ContactC from './blocks/PersonalDetail/ContactC';
 import EducationA from './blocks/Education/EducationA';
 import HeadingD from './blocks/Heading/HeadingD';
 import HobbiesA from './blocks/Hobbies/HobbiesA';
 import LanguagesA from './blocks/Languages/LanguagesA';
 import ObjectiveA from './blocks/Objective/ObjectiveA';
-import PageContext from './util/PageContext';
 import ProjectsA from './blocks/Projects/ProjectsA';
 import ReferencesA from './blocks/References/ReferencesA';
 import SkillsA from './blocks/Skills/SkillsA';
 import WorkA from './blocks/Work/WorkA';
+import Image from 'next/image';
 
-type Layout = (keyof typeof Blocks)[][]; // Layout type as an array of arrays of keys
 
-type BlocksType = {
-  [key: string]: React.ComponentType<any>; // Blocks object where the value is a React component
-};
-
-const Blocks: BlocksType = {
-  objective: ObjectiveA,
-  work: WorkA,
-  education: EducationA,
-  projects: ProjectsA,
-  awards: AwardsA,
-  certifications: CertificationsA,
-  skills: SkillsA,
-  hobbies: HobbiesA,
-  languages: LanguagesA,
-  references: ReferencesA,
-};
-
-interface CastformProps {
-  data: {
-    profile: {
-      photograph: string;
-      firstName: string;
-      lastName: string;
-      subtitle: string;
-      heading: string;
-    };
-    metadata: {
-      layout: {
-        castform: Layout;
-      };
-      colors: {
-        background: string;
-        text: string;
-        primary: string;
-      };
-      font: string;
-    };
-  };
-}
-
-const Castform: React.FC<CastformProps> = ({ data }) => {
-  const layout = data.metadata.layout.castform;
-
-  const Photo = () =>
-    data.profile.photograph !== '' && (
-      <img
-        className="w-32 h-32 rounded-full object-cover"
-        style={{
-          borderWidth: 6,
-          borderColor: data.metadata.colors.background,
-        }}
-        src={data.profile.photograph}
-        alt={data.profile.firstName}
-      />
-    );
-
-  const Profile = () => (
-    <div>
-      <h1 className="text-2xl font-bold">
-        {data.profile.firstName} {data.profile.lastName}
-      </h1>
-      <h5>{data.profile.subtitle}</h5>
-    </div>
-  );
-
+export default function Castform () {
+ 
   return (
-    <PageContext.Provider value={{ data, heading: HeadingD }}>
+
       <div
         id="page"
         className="rounded"
@@ -133,7 +69,6 @@ const Castform: React.FC<CastformProps> = ({ data }) => {
           </div>
         </div>
       </div>
-    </PageContext.Provider>
   );
 };
 

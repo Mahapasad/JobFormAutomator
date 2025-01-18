@@ -3,7 +3,7 @@ import React from 'react';
 import { hasAddress, hexToRgb } from './util';
 import AwardsA from './blocks/Awards/AwardsA';
 import CertificationsA from './blocks/Certifications/CertificationsA';
-import ContactB from './blocks/Contact/ContactB';
+import ContactB from './blocks/PersonalDetail/ContactB';
 import EducationA from './blocks/Education/EducationA';
 import HeadingC from './blocks/Heading/HeadingC';
 import HobbiesA from './blocks/Hobbies/HobbiesA';

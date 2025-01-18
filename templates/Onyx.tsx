@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { hasAddress } from './util';
 import AwardsA from './blocks/Awards/AwardsA';
 import CertificationsA from './blocks/Certifications/CertificationsA';
-import Contact from './blocks/Contact/ContactE';
+import Contact from './blocks/PersonalDetail/ContactE';
 import EducationA from './blocks/Education/EducationA';
 import HeadingA from './blocks/Heading/HeadingA';
 import HobbiesA from './blocks/Hobbies/HobbiesA';

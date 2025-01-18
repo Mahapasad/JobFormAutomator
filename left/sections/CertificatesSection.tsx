@@ -3,8 +3,7 @@ import React, { useState } from "react";
 import { useCertificateStore } from "@/app/store";
 
 export default function CertificatesSection() {
-  const { certificates, addCertificate, updateCertificate } =
-    useCertificateStore();
+  const { certificates, addCertificate, updateCertificate } = useCertificateStore();
   const [certificate, setCertificate] = useState("");
   const [editCertId, setEditCertId] = useState<string | null>(null);
 
@@ -13,7 +12,6 @@ export default function CertificatesSection() {
       alert("Certificate name cannot be empty!");
       return;
     }
-
     if (editCertId) {
       updateCertificate(editCertId, certificate);
       setEditCertId(null);
@@ -48,30 +46,6 @@ export default function CertificatesSection() {
       <button onClick={handleCertificateSubmit}>
         {editCertId ? "Update Certificate" : "Add Certificate"}
       </button>
-
-      <div className="my-4">
-        <h4>Certificate List</h4>
-        {certificates && certificates.length > 0 ? (
-          certificates.map((cert) => (
-            <div key={cert.id} className="flex justify-between my-2">
-              <span>{cert.name}</span>
-              <div>
-                <button
-                  onClick={() => handleEditClick(cert.id, cert.name)}
-                  className="mx-2"
-                >
-                  Edit
-                </button>
-                <button onClick={() => handleDeleteClick(cert.id)}>
-                  Delete
-                </button>
-              </div>
-            </div>
-          ))
-        ) : (
-          <p>No certificates added yet.</p>
-        )}
-      </div>
     </div>
   );
 }

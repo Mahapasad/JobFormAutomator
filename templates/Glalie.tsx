@@ -2,7 +2,7 @@ import React from 'react';
 import { hexToRgb } from './util';
 import AwardsA from './blocks/Awards/AwardsA';
 import CertificationsA from './blocks/Certifications/CertificationsA';
-import ContactD from './blocks/Contact/ContactD';
+import ContactD from './blocks/PersonalDetail/ContactD';
 import EducationA from './blocks/Education/EducationA';
 import HeadingB from './blocks/Heading/HeadingB';
 import HobbiesA from './blocks/Hobbies/HobbiesA';
