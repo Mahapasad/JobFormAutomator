@@ -1,17 +1,10 @@
-import React, { memo, useContext } from 'react';
-import PageContext from '../../../contexts/PageContext';
+import { Heading } from "lucide-react";
 
-const HeadingA = ({ children }) => {
-  const { data } = useContext(PageContext);
+export default function HeadingA () {
 
   return (
-    <h6
-      className="text-xs font-bold uppercase mb-1"
-      style={{ color: data.metadata.colors.primary }}
-    >
-      {children}
-    </h6>
+    Heading
   );
 };
 
-export default memo(HeadingA);
+

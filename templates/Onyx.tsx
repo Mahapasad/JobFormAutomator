@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { hasAddress } from './util';
-import AwardsA from './blocks/Awards/AwardsA';
+import AwardsA from './blocks/Achievements/Achievements';
 import CertificationsA from './blocks/Certifications/CertificationsA';
 import Contact from './blocks/PersonalDetail/ContactE';
 import EducationA from './blocks/Education/EducationA';

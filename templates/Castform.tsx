@@ -1,5 +1,5 @@
 import React from 'react';
-import AwardsA from './blocks/Awards/AwardsA';
+import AwardsA from './blocks/Achievements/Achievements';
 import CertificationsA from './blocks/Certifications/CertificationsA';
 import ContactC from './blocks/PersonalDetail/ContactC';
 import EducationA from './blocks/Education/EducationA';
@@ -72,4 +72,4 @@ export default function Castform () {
   );
 };
 
-export default Castform;
+

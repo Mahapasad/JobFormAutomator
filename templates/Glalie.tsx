@@ -1,6 +1,6 @@
 import React from 'react';
 import { hexToRgb } from './util';
-import AwardsA from './blocks/Awards/AwardsA';
+import AwardsA from './blocks/Achievements/Achievements';
 import CertificationsA from './blocks/Certifications/CertificationsA';
 import ContactD from './blocks/PersonalDetail/ContactD';
 import EducationA from './blocks/Education/EducationA';

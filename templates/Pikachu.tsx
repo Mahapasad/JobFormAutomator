@@ -1,6 +1,6 @@
 import React from 'react';
 import Markdown from './util/Markdown';
-import AwardsA from './blocks/Awards/AwardsA';
+import AwardsA from './blocks/Achievements/Achievements';
 import CertificationsA from './blocks/Certifications/CertificationsA';
 import ContactA from './blocks/PersonalDetail/ContactA';
 import EducationA from './blocks/Education/EducationA';

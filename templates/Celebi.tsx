@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import React from 'react';
 import { hexToRgb } from './util/index';
-import AwardsA from './blocks/Awards/AwardsA';
+import AwardsA from './blocks/Achievements/Achievements';
 import CertificationsA from './blocks/Certifications/CertificationsA';
 import ContactC from './blocks/PersonalDetail/ContactC';
 import EducationA from './blocks/Education/EducationA';
