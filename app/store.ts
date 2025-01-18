@@ -43,18 +43,6 @@ export const usePersonalDataStore = create<PersonalDataStore>((set) => ({
         }));
     },
 }));
-type UserInputStore = {
-    userText: string;
-    setUserText: (text: string) => void;
-    clearUserText: () => void;
-};
-
-export const useUserInputStore = create<UserInputStore>((set) => ({
-    userText: '', // Initial text state
-    setUserText: (text: string) => set(() => ({ userText: text })), // Update text
-    clearUserText: () => set(() => ({ userText: '' })), // Clear text
-}));
-
 
 //change the project data
 type Project = {

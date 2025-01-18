@@ -1,15 +1,30 @@
 // src/components/DataStyleSelection/DataStyleSelection.tsx
 
 "use client";
-import React, { ChangeEvent,useState } from "react";
-import { usePersonalDataStore, useProjectStore, useEducationStore ,useCertificateStore } from "@/app/store";
+import React, { ChangeEvent, useState } from "react";
+import {
+  usePersonalDataStore,
+  useProjectStore,
+  useEducationStore,
+  useExperienceStore
+} from "@/app/store";
 
 export default function LeftSidebar() {
-  const { personalData, updatePersonalData,} = usePersonalDataStore();
-  const {  addProject, updateProject, deleteProject } = useProjectStore();
+  const { personalData, updatePersonalData } = usePersonalDataStore();
+  const { addProject, updateProject } = useProjectStore();
+  const { addEducation, updateEducation } = useEducationStore();
+  const [eduForm, seteduForm] = useState({
+    name: '',
+    details: '',
+    startDate: '',
+    endDate: '',
+    cgpa: '',
+  });
+  const [editEdId, setEditEdId] = useState<string | null>(null);
   const [projectName, setProjectName] = useState("");
   const [projectDetails, setProjectDetails] = useState("");
-  const [editId, setEditId] = useState<string | null>(null);
+  const [editPjId, setEditPjId] = useState<string | null>(null);
+  
 
   // To Add Personal Data to the State
   const handleChangePersonal = (
@@ -21,51 +36,40 @@ export default function LeftSidebar() {
 
   // To Add Project Data to the State
   const handleChangeProject = () => {
-    if (editId) {
-        updateProject(editId, projectName, projectDetails);
-        setEditId(null);
+    if (editPjId) {
+      updateProject(editPjId, projectName, projectDetails);
+      setEditPjId(null);
     } else {
-        addProject(projectName, projectDetails);
+      addProject(projectName, projectDetails);
     }
-    setProjectName('');
-    setProjectDetails('');
-};
+    setProjectName("");
+    setProjectDetails("");
+  };
 
   // To Add Education Data to the State
-  const handleChangeEducation = () => {
-    if (editId) {
-        updateEducation(editId, projectName, projectDetails);
-        setEditId(null);
-    } else {
-        addEducation(projectName, projectDetails);
-    }
-    setEducationName('');
-    setEducationDetails('');
-};
+  const handleEdChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    seteduForm((preveduForm) => ({ ...preveduForm, [name]: value }));
+  };
 
-  // To Add Certificates Data to the State
-  const handleChangeCertificate = () => {
-    if (editId) {
-        updateCertificate(editId, projectName, projectDetails);
-        setEditId(null);
-    } else {
-        addCertificate(projectName, projectDetails);
-    }
-    setCertificateName('');
-    setCertificateDetails('');
-};
+  const handleEdSubmit = () => {
+    const { name, details, startDate, endDate, cgpa } = eduForm;
+      if (editEdId) {
+          updateEducation(editEdId, name, details, startDate, endDate, cgpa);
+          setEditEdId(null);
+      } else {
+          addEducation(name, details, startDate, endDate, cgpa);
+      }
+      seteduForm({ name: '', details: '', startDate: '', endDate: '', cgpa: '' });
+    };
+
   // To Add Work Data to the State
 
   // To Add Award & Achievement Data to the State
-  const handleChangeAwards = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setAwardData({ ...awardData, [name]: value });
-  };
-
   return (
     <div className="w-1/5 mx-2">
       {/* Personal Details Area */}
-      <div id="form-personal" className="mb-2">
+      <div className="mb-2">
         <div className="my-2">
           <input
             name="name"
@@ -162,20 +166,54 @@ export default function LeftSidebar() {
       </div>
 
       {/* Education Area */}
-      <div id="form-education" className="mb-2">
+      <div id="eduForm-education" className="mb-2">
         <div className="my-2">Education</div>
         <hr />
         <button onClick={handleEducationClick} className="my-3 w-100">
           Add Education
         </button>
-        {educationCount > 0 &&
-          educationArrTemplate.map((element) => (
-            <div key={element.key}>{element}</div>
-          ))}
+        <input
+                type="text"
+                name="name"
+                placeholder="Institution Name"
+                value={eduForm.name}
+                onChange={handleEdChange}
+            />
+            <input
+                type="text"
+                name="details"
+                placeholder="Details"
+                value={eduForm.details}
+                onChange={handleEdChange}
+            />
+            <input
+                type="date"
+                name="startDate"
+                placeholder="Start Date"
+                value={eduForm.startDate}
+                onChange={handleEdChange}
+            />
+            <input
+                type="date"
+                name="endDate"
+                placeholder="End Date"
+                value={eduForm.endDate}
+                onChange={handleEdChange}
+            />
+            <input
+                type="text"
+                name="cgpa"
+                placeholder="CGPA"
+                value={eduForm.cgpa}
+                onChange={handleEdChange}
+            />
+            <button onClick={handleEdSubmit}>
+                {editEdId ? 'Update Education' : 'Add Education'}
+            </button>
       </div>
 
       {/* Projects Area */}
-      <div id="form-projects" className="mb-2">
+      <div id="eduForm-projects" className="mb-2">
         <div className="d-flex align-items-center justify-content-between">
           <div className="my-2">Projects</div>
           <div />
@@ -184,18 +222,29 @@ export default function LeftSidebar() {
         <button onClick={handleProjectClick} className="my-3 w-100">
           Add Projects
         </button>
-        {projectCount > 0 &&
-          projArrTemplate.map((element) => (
-            <div key={element.key}>{element}</div>
-          ))}
+        <div>
+          <input
+            type="text"
+            placeholder="Project Name"
+            value={projectName}
+            onChange={(e) => setProjectName(e.target.value)}
+          />
+          <textarea
+            placeholder="Project Details"
+            value={projectDetails}
+            onChange={(e) => setProjectDetails(e.target.value)}
+          />
+          <button onClick={handleChangeProject}>
+            {editPjId ? "Update Project" : "Add Project"}
+          </button>
+        </div>
       </div>
 
       {/* Work Experience Area */}
-      <div id="form-work" className="mb-2">
+      <div id="eduForm-work" className="mb-2">
         <div className="d-flex align-items-center justify-content-between">
           <div className="my-2">Work Experience</div>
         </div>
-        <hr />
         <button onClick={handleWorkClick} className="my-3 w-100">
           Add Experience
         </button>
@@ -206,7 +255,7 @@ export default function LeftSidebar() {
       </div>
 
       {/* Awards & Achievement */}
-      <div id="form-awards" className="mb-2">
+      <div id="eduForm-awards" className="mb-2">
         <div className="d-flex align-items-center justify-content-between">
           <div className="my-2">Awards & Achievement</div>
         </div>
@@ -222,7 +271,7 @@ export default function LeftSidebar() {
       </div>
 
       {/* Hobbies Area */}
-      <div id="form-hobbies" className="mb-2">
+      <div id="eduForm-hobbies" className="mb-2">
         <div className="d-flex align-items-center justify-content-between">
           <div className="my-2">Hobbies</div>
         </div>
@@ -239,22 +288,11 @@ export default function LeftSidebar() {
       </div>
 
       {/* Languages Area */}
-      <div id="form-languages" className="mb-2">
-        <div className="d-flex align-items-center justify-content-between">
-          <div className="my-2">Languages</div>
-        </div>
-        <div className="my-2">
-          <input
-            name="language"
-            onChange={handleChangePersonal}
-            type="text"
-            placeholder="Separate languages by comma"
-            value={personalData.language}
-          />
-        </div>
+      <div id="eduForm-languages" className="mb-2">
+
 
         {/* Certificate Area */}
-        <div id="form-certificates" className="mb-2">
+        <div id="eduForm-certificates" className="mb-2">
           <div className="d-flex align-items-center justify-content-between">
             <div className="my-2">Certificate</div>
           </div>
