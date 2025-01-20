@@ -9,9 +9,6 @@ export default function CertificationsA() {
           <div key={certificate.id}>
             <h3>{certificate.name}</h3>
             <p>{certificate.details}</p>
-            <a href={certificate.link} target="_blank" rel="noopener noreferrer">
-              View Certificate
-            </a>
           </div>
         ))}
       </div>

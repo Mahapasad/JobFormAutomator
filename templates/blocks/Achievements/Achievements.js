@@ -9,7 +9,6 @@ export default function Achievement() {
           <div key={achievement.id}>
             <h3>{achievement.name}</h3>
             <p>{achievement.details}</p>
-
           </div>
         ))}
       </div>

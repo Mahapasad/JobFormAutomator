@@ -91,7 +91,6 @@ export default function PersonalDetailsSection() {
         placeholder="Github url"
         value={personalData.github}
       />
-      {/* Add additional inputs for other personal details */}
     </div>
   );
 }
