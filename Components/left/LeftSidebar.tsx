@@ -2,15 +2,19 @@
 
 "use client";
 import React, { ChangeEvent, useState } from "react";
+
 import {
   usePersonalDataStore,
   useProjectStore,
   useEducationStore,
 } from "@/app/store";
 import { GoPerson } from "react-icons/go";
+import { PiCertificateLight } from "react-icons/pi";
 import { GiGraduateCap } from "react-icons/gi";
 import { MdWork } from "react-icons/md";
 import { BsJournals } from "react-icons/bs";
+import { GiAchievement } from "react-icons/gi";
+import { LiaLanguageSolid } from "react-icons/lia";
 export default function LeftSidebar() {
   const { personalData, updatePersonalData } = usePersonalDataStore();
   const { addProject, updateProject } = useProjectStore();
@@ -304,8 +308,11 @@ export default function LeftSidebar() {
 
       {/* Awards & Achievement */}
       <div id="eduForm-awards" className="mb-2">
-        <div className="d-flex align-items-center justify-content-between">
-          <div className="my-2">Achievement</div>
+        <div className="flex flex-row space-x-5">
+          <span>
+            <GiAchievement color="grey" size={30} />
+          </span>
+          <span className="text-white text-2xl">Achievements</span>
         </div>
         <div className="my-2 flex flex-col">
           <input
@@ -329,8 +336,11 @@ export default function LeftSidebar() {
       </div>
       {/* Languages Area */}
       <div className="mb-2">
-        <div className="d-flex align-items-center justify-content-between">
-          <div className="my-2">Languages</div>
+        <div className="flex flex-row space-x-5">
+          <span>
+            <LiaLanguageSolid color="grey" size={30} />
+          </span>
+          <span className="text-white text-2xl">Languages</span>
         </div>
         <div className="my-2 flex flex-col">
           <input
@@ -346,8 +356,11 @@ export default function LeftSidebar() {
         </div>
         {/* Certificate Area */}
         <div id="eduForm-certificates" className="mb-2">
-          <div className="d-flex align-items-center justify-content-between">
-            <div className="my-2">Certificate</div>
+          <div className="flex flex-row space-x-5">
+            <span>
+              <PiCertificateLight color="grey" size={30} />
+            </span>
+            <span className="text-white text-2xl">Certificates</span>
           </div>
           <div className="my-2 flex flex-col">
             <input
