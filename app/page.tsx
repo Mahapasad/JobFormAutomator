@@ -1,5 +1,5 @@
 import React from "react";
-import Resume from "./Resume/page";
+import Resume from "@/app/Resume/page";
 export default function Home() {
   return (
     <>

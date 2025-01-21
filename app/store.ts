@@ -22,17 +22,17 @@ type PersonalDataStore = {
 
 export const usePersonalDataStore = create<PersonalDataStore>((set) => ({
     personalData: {
-        name: "Your Name",
-        summary: "Lorem ipsum dolor sit amet, consectetur adipiscing eli",
-        profile: "Work Profile",
-        address: "Address Line",
-        phone: "Phone Number",
-        email: "Email Address",
-        skill: "Your, Skills, are, shown, here",
-        hobbie: "Your, hobbies, are, shown, here",
-        language: "your, languages, are, shown, here",
-        linkedin: "Linkedin",
-        github: "Github",
+        name: "",
+        summary: "",
+        profile: "",
+        address: "",
+        phone: "",
+        email: "",
+        skill: "",
+        hobbie: "",
+        language: "",
+        linkedin: "",
+        github: "",
     },
     updatePersonalData: (name, value) => {
         set((state) => ({
