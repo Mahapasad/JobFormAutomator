@@ -49,7 +49,7 @@ export default function RightSidebar() {
           />
         </div>
         {/* font weight */}
-        <div className="my-2">
+        <div className="my-3">
         <Slider
             value={weightValue}
             onValueChange={handleFontWeightChange}
@@ -67,14 +67,14 @@ export default function RightSidebar() {
           />
         </div>
         <div>
-          <button className="mx-2 my-5">Print</button>
+          <button className="mx-3 my-6">Print</button>
         </div>
         <div>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline">Open</Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56">
+            <DropdownMenuContent className="w-58">
               <DropdownMenuLabel>Panel Position</DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuRadioGroup
